@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="style/bootstrap.min.css />
+		<link rel="stylesheet" href="style/bootstrap.min.css" />
+		<link rel="stylesheet" href="style/bootstrap-theme.min.css" />
 		<link rel="stylesheet" href="style/style.css" />
 	</head>
-	<body>
+	<body ng-app="adsApp" ng-controller="HomeController">
 		<div class="container">
-			<ul class="nav navbar-nav">
-				<li><a href="#/home">Home</a></li>
-				<li><a href="#/login">Login</a></li>
-				<li><a href="#/register">Register</a></li>
-			</ul>
-			<ng-view>
-			</ng-view>
+			<div class="navbar">
+				<ul class="nav">
+					<li><a href="#/home">Home</a></li>
+					<li><a href="#/login">Login</a></li>
+					<li><a href="#/register">Register</a></li>
+				</ul>
+			</div>	
+			<div class="container">
+				<ul>
+					<li ng-repeat="ad in data.ads">
+						<div class="row">
+							<h2>{{ad.title}}</h2>
+							<span>{{ad.date | date:'d-MMM-yyyy'}}</span>
+							<div class="col-sm-3">
+								<img ng-src="{{ad.imageDataUrl}}">
+							</div>
+							<div class="col-sm-9">
+								<div>{{ad.text}}</div>
+								<p><strong>Name: </strong>{{ad.ownerName}}</p>
+								<p><strong>Email: </strong>{{ad.ownerEmail}}</p>
+								<p><strong>Tel. </strong>{{ad.ownerEmail}}</p>
+							</div>							
+						</div>
+					</li>
+				</ul>
+			</div>	
 		</div>
-		<script src="script/lib/angular.min.js"></script>
-		<script src="script/lib/angular-resource.js"></script>
+		
+			
+		<script src="script/lib/angular.js"></script>
 		<script src="script/lib/angular-route.js"></script>
+		<script src="script/lib/angular-resource.js"></script>
 		<script src="script/app.js"></script>
 		<script src="script/service/adsData.js"></script>
 		<script src="script/controller/homeController.js"></script>
