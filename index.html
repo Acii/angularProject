@@ -5,35 +5,38 @@
 		<link rel="stylesheet" href="style/bootstrap-theme.min.css" />
 		<link rel="stylesheet" href="style/style.css" />
 	</head>
-	<body ng-app="adsApp" ng-controller="HomeController">
-		<div class="container">
-			<div class="navbar">
-				<ul class="nav">
-					<li><a href="#/home">Home</a></li>
-					<li><a href="#/login">Login</a></li>
-					<li><a href="#/register">Register</a></li>
-				</ul>
-			</div>	
-			<div class="container">
+	<body ng-app="adsApp">
+		<!-- <div class="navbar">
+			<ul class="nav">
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/login">Login</a></li>
+				<li><a href="#/register">Register</a></li>
+			</ul>
+		</div> -->
+		<div class="row">
+			<div class="col-sm-2">
+				<div class="row">
+					<h1>Navigation</h1>
+					<hr />
+					<a href="#/home">Home</a>
+				</div>
+				<div class="row">
+					To Publish a new ad, please login.
+					<a href="#/login">Login</a>
+					<a href="#/register">Register</a>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<ng-view>
+				</ng-view>	
+			</div>
+			<div class="col-sm-2" ng-controller="IndexCat">
 				<ul>
-					<li ng-repeat="ad in data.ads">
-						<div class="row">
-							<h2>{{ad.title}}</h2>
-							<span>{{ad.date | date:'d-MMM-yyyy'}}</span>
-							<div class="col-sm-3">
-								<img ng-src="{{ad.imageDataUrl}}">
-							</div>
-							<div class="col-sm-9">
-								<div>{{ad.text}}</div>
-								<p><strong>Name: </strong>{{ad.ownerName}}</p>
-								<p><strong>Email: </strong>{{ad.ownerEmail}}</p>
-								<p><strong>Tel. </strong>{{ad.ownerEmail}}</p>
-							</div>							
-						</div>
-					</li>
+					<li ng-repeat="cat in data.cat">
+						{{cat.name}}
 				</ul>
-			</div>	
-		</div>
+			</div>
+		</div>	
 		
 			
 		<script src="script/lib/angular.js"></script>

@@ -1,3 +1,5 @@
+'use strict';
+
 var app = angular.module('adsApp', ['ngResource', 'ngRoute'])
 .config(function ($routeProvider) {
 	$routeProvider.when('/home', {

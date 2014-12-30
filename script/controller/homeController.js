@@ -1,3 +1,5 @@
+'use strict';
+
 app.controller('HomeController', function ($scope, $route, $log, adsData) {
 	adsData.getAds()
 		.$promise

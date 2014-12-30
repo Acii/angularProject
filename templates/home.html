@@ -1,7 +1,17 @@
 <div class="container">
 	<ul>
 		<li ng-repeat="ad in data.ads">
-			<div>{{ad.title}}</div>
+			<div class="row">
+				<h2>{{ad.title}}</h2>
+				<span>{{ad.date | date:'d-MMM-yyyy'}}</span>
+				<div class="col-sm-3"><img ng-src="{{ad.imageDataUrl}}" /></div>
+				<div class="col-sm-5">
+					<span>{{ad.text}}</span>
+					<p><strong>Name: </strong>{{ad.ownerName}}</p>
+					<p><strong>Email: </strong>{{ad.ownerEmail}}</p>
+					<p><strong>Tel: </strong>{{ad.ownerPhone}}</p>
+				</div>
+			</div>
 		</li>
 	</ul>
 </div>	
