@@ -6,6 +6,10 @@ var app = angular.module('adsApp', ['ngResource', 'ngRoute'])
 		templateUrl: 'templates/home.html',
 		controller: 'HomeController'
 	});
+	$routeProvider.when('/login', {
+		templateUrl: 'templates/login.html',
+		controller: 'HomeController'
+	});
 });
 // var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 // .config(function ($routeProvider) {

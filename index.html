@@ -6,15 +6,15 @@
 		<link rel="stylesheet" href="style/style.css" />
 	</head>
 	<body ng-app="adsApp">
-		<!-- <div class="navbar">
-			<ul class="nav">
-				<li><a href="#/home">Home</a></li>
-				<li><a href="#/login">Login</a></li>
-				<li><a href="#/register">Register</a></li>
-			</ul>
-		</div> -->
+		 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#/home">Home</a></li>
+		        <li><a href="#/login">Login</a></li>
+		        <li><a href="#/register">Register</a></li>
+		       </ul>
+	     </div>
 		<div class="row">
-			<div class="col-sm-2">
+			<!-- <div class="col-sm-2">
 				<div class="row">
 					<h1>Navigation</h1>
 					<hr />
@@ -25,19 +25,9 @@
 					<a href="#/login">Login</a>
 					<a href="#/register">Register</a>
 				</div>
-			</div>
-			<div class="col-sm-5">
-				<ng-view>
-				</ng-view>	
-			</div>
-			<div class="col-sm-2" ng-controller="IndexCat">
-				<ul>
-					<li ng-repeat="cat in data.cat">
-						{{cat.name}}
-				</ul>
-			</div>
+			</div> -->
+			 	<ng-view></ng-view>
 		</div>	
-		
 			
 		<script src="script/lib/angular.js"></script>
 		<script src="script/lib/angular-route.js"></script>
@@ -45,5 +35,6 @@
 		<script src="script/app.js"></script>
 		<script src="script/service/adsData.js"></script>
 		<script src="script/controller/homeController.js"></script>
+		<script src="script/controller/category.js"></script>
 	</body>
 </html>
