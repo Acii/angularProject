@@ -8,7 +8,11 @@ var app = angular.module('adsApp', ['ngResource', 'ngRoute'])
 	});
 	$routeProvider.when('/login', {
 		templateUrl: 'templates/login.html',
-		controller: 'HomeController'
+		controller: 'loginController'
+	});
+	$routeProvider.when('/register', {
+		templateUrl: 'templates/register.html',
+		controller: 'RegisterController'
 	});
 });
 // var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])

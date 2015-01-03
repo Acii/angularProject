@@ -6,12 +6,16 @@
 					<div class="row">
 						<h2>{{ad.title}}</h2>
 						<span>{{ad.date | date:'d-MMM-yyyy'}}</span>
-						<div class="col-sm-3"><img ng-src="{{ad.imageDataUrl}}" /></div>
+						<div class="col-sm-3"><img class="imgHomeAds" ng-src="{{ad.imageDataUrl}}" /></div>
 						<div class="col-sm-5">
-							<span>{{ad.text}}</span>
-							<p><strong>Name: </strong>{{ad.ownerName}}</p>
-							<p><strong>Email: </strong>{{ad.ownerEmail}}</p>
-							<p><strong>Tel: </strong>{{ad.ownerPhone}}</p>
+							<div class="panel panel-default">
+								<div class="panel-footer">
+									<span>{{ad.text}}</span>
+								</div>
+								<div class="panel-footer"><strong>Name: </strong>{{ad.ownerName}}</div>
+								<div class="panel-footer"><strong>Email: </strong>{{ad.ownerEmail}}</div>
+								<div class="panel-footer"><strong>Tel: </strong>{{ad.ownerPhone}}</div>
+							</div>
 						</div>
 					</div>
 				</li>
@@ -19,12 +23,18 @@
 		</div>
 	</div>
 	<div class="col-sm-3">
+		<h3>Categories</h3>
 			<ul class="list-group">
 				<li class="list-group-item">All</li>
 				<li class="list-group-item" ng-repeat="cat in categories"><a href="{{cat.id}}">{{cat.name}}</a></li>
 			</ul>
 			<!-- <option selected value="">All</option>
 			<option ng-repeat="cat in categories" value="{{cat.id}}">{{cat.name}}</option> -->
+		<h3>Towns</h3>	
+			<ul class="list-group">
+				<li class="list-group-item">All</li>
+				<li class="list-group-item" ng-repeat="town in towns"><a href="{{town.id}}">{{town.name}}</a></li>
+			</ul>
 	</div>
 </div>		
 
