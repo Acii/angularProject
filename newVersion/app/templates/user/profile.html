@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-sm-4 editProfile">
+		<div class="box">		
+			<h2>Edit Profile</h2>
+			<p>
+		        <label for="title">Name:</label> <br />
+		        <input type="text" id="title" ng-model="userData.name" ng-value="getUserData.name" required />
+		    </p>
+		  
+		    <p>
+		        <label for="title">Email:</label> <br />
+		        <input type="email" id="email" ng-model="userData.email" ng-value="getUserData.email" required />
+  		    </p>
+		  
+		    <p>
+		        <label for="title">Phone:</label> <br />
+		        <input type="tel" id="tel" ng-model="userData.phoneNumber" ng-value="getUserData.phoneNumber" required />
+		    </p>
+		  
+		    <p>
+		    	
+		        <label for="town">Town:</label><br />
+			      <select id="town" ng-model="userData.townId" ng-value="getUserData.townId">
+			          <option value="null">(None)</option>
+			          <option ng-repeat="town in towns" 
+			              value="{{town.id}}">{{town.name}}</option>
+			      </select>
+		    </p>
+		  
+		    <p>
+		        <a ng-click="updateUser(userData)" class="button">Update</a>
+		        <a href="#/user/ads" class="button">Cancel</a>
+		    <p>
+		</div>
+	</div>
+	<div class="col-sm-5 changePassword">
+		<div class="box">
+			<h2>Change Password</h2>
+			<p>
+			    <label for="title">Old password:</label> <br />
+			    <input type="password" id="oldPassword" ng-model="userPass.oldPassword" required />
+			</p>
+			  
+			<p>
+			    <label for="title">New password:</label> <br />
+			    <input type="password" id="newPassword" ng-model="userPass.newPassword" required />
+			</p>
+			  
+			<p>
+			    <label for="title">Config new password:</label> <br />
+			    <input type="password" id="configNewPassword" ng-model="userPass.confirmPassword" required />
+			</p>
+			    
+			<p>
+			    <a ng-click="changePassword(userPass)" class="button">Change Password</a>
+			    <a href="#/user/ads" class="button">Cancel</a>
+			<p>
+		</div>		
+	</div>  
+</div>

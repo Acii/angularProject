@@ -1,0 +1,81 @@
+
+<ul class="ads" ng-if="!clickEdit">
+    <li ng-repeat="ad in adsUser.ads" class="box">
+    	<div class="row">    	
+	    	<div class="col-sm-9">
+		        <h1>{{ad.title}}</h1>
+		        <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
+		        <div> <!-- ng-if='ad.imageDataUrl' -->
+		            <strong>Image:</strong>
+		            <img class="ad-image" src="../images/defaultImg.jpg" ng-src="{{ad.imageDataUrl}}" />
+		        </div>
+		        <div>{{ad.text}}</div>
+		        <div><strong>Category: </strong> {{ad.categoryName}}</div>
+		        <div><strong>Town: </strong> {{ad.townName}}</div>
+	       </div>
+	        <div class="col-sm-3" style="margin-top: 30px">
+	        	<h1>Status:</h1>
+	        	<div>{{ad.status}}</div>
+	        	<a href="#/user/ad/edit" class="button" ng-click="editClicked(ad.id)">Edit</a>
+	        	<a href="#/user/delete" class="button" ng-click="deactivate(ad.id)">Deactivate</a>
+      			<a href="#/user/publish" class="button" ng-click="publishClicked(ad.id)">Publish Again</a>
+      			<a href="#/user/delete" class="button" ng-click="deleteClicked(ad.id, ad.title)">Delete</a>
+      			
+	        </div>
+        </div>
+    </li>
+</ul>
+
+<pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<div ng-if="adsUser.ads.length==0" class="box no-data">
+    No ads found.
+</div>
+
+<div class="box" ng-if="clickEdit" >
+  <h2>Publish New Ad</h2>
+  <p>
+      <label for="title">Title:</label>
+      <input type="text" id="title" ng-model="adData.title" required />
+  </p>
+  
+  <p>
+      <label for="text">text:</label>
+      <textarea id="text" ng-model="adData.text" required></textarea>
+  </p>
+  
+  <p>
+  <label for="image">Image:</label>
+  <input type="file" id="image"
+         onchange="angular.element(this).scope().fileSelected(this)" />
+  <div class="image-box">
+      <p>Image Preview</p>
+  </div>
+</p>
+
+
+  <p>
+      <label for="category">Category:</label>
+      <select id="category" ng-model="adData.categoryId">
+          <option value="null">(None)</option>
+          <option ng-repeat="c in categories" value="{{c.id}}">{{c.name}}</option>
+      </select>
+  </p>
+  
+  <p>
+      <label for="town">Town:</label>
+      <select id="town" ng-model="adData.townId">
+          <option value="null">(None)</option>
+          <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+      </select>
+  </p>
+  
+  <p>
+      <a ng-click="publishAd(adData)" class="button">Publish</a>
+      <a href="#/user/ads" class="button">Cancel</a>
+  <p>
+</div>
+
