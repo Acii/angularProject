@@ -2,6 +2,7 @@
 
 app.controller('RightSidebarController',
     function ($scope, $rootScope, categoriesService, townsService) {
+    	$scope.rightSidebar = true;
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
         $scope.categoryClicked = function(clickedCategoryId) {
